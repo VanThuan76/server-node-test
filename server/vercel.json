@@ -19,10 +19,5 @@
       "src": "/api/(.*)",
       "dest": "src/server.ts"
     }
-  ],
-  "env": {
-    "SESSION_SECRET": "@session_secret",
-    "MONGO_CONNECTION_STRING": "@mongo_connection_string",
-    "PORT": "3000"
-  }
+  ]
 }
