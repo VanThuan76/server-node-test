@@ -14,8 +14,10 @@ app.use(morgan("dev"));
 
 app.use(express.json());
 
+app.set('trust proxy', 1);
+
 app.use(cors({
-    origin: ["http://localhost:5023", "https://seal-app-a7lmw.ondigitalocean.app", "https://gold-t693d.ondigitalocean.app"],
+    origin: ["http://localhost:5023", "https://seal-app-a7lmw.ondigitalocean.app", "https://gold-t693d.ondigitalocean.app", "https://server-node-test-zeta.vercel.app"],
     credentials: true, // This is important for cookies/sessions
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 }));
@@ -27,7 +29,7 @@ app.use(session({
     cookie: {
         maxAge: 60 * 60 * 1000,
         sameSite: 'none',
-        secure: process.env.NODE_ENV === 'production',
+        secure: true,
         httpOnly: true,
     },
     rolling: true,
